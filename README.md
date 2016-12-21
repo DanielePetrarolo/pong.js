@@ -56,7 +56,10 @@ Options (work in progress)
 					<tr>
 						<td><strong>field</strong></td>
 						<td>object</td>
-						<td>{ 'background' : '#000000', 'color' : '#FFFFFF'}</td>
+						<td>{ 
+						'background' : '#000000', 
+						'color' : '#FFFFFF'
+						}</td>
 						<td>Object that define custom setting for the field of the pong game.</td>
 					</tr>
 					<tr>
