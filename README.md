@@ -38,7 +38,7 @@ Options (work in progress)
 					<tr>
 						<td><strong>Name</strong></td>
 						<td><strong>Type</strong></td>
-						<td><strong>Default</strong></td>
+						<td width="200"><strong>Default values</strong></td>
 						<td><strong>Description</strong></td>
 					</tr>
 					<tr>
@@ -56,22 +56,19 @@ Options (work in progress)
 					<tr>
 						<td><strong>field</strong></td>
 						<td>object</td>
-						<td>{ 
-						'background' : '#000000', 
-						'color' : '#FFFFFF'
-						}</td>
+						<td>{<br />'background' : '#000000',<br />'color' : '#FFFFFF'<br />}</td>
 						<td>Object that define custom setting for the field of the pong game.</td>
 					</tr>
 					<tr>
 						<td><strong>paddle</strong></td>
 						<td>object</td>
-						<td>{ 'width': 50, 'height': 10, 'color': '#FFFFFF' }</td>
+						<td>{ <br />'width': 50, <br />'height': 10, <br />'color': '#FFFFFF' <br />}</td>
 						<td>Object that define custom setting for the paddles of the pong game.</td>
 					</tr>
 					<tr>
 						<td><strong>ball</strong></td>
 						<td>object</td>
-						<td>{ 'radius': 5, 'color': '#FFFFFF' }</td>
+						<td>{<br /> 'radius': 5,<br /> 'color': '#FFFFFF' <br />}</td>
 						<td>Object that define custom setting for the ball of the pong game.</td>
 					</tr>
 					<tr>
