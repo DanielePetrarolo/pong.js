@@ -96,7 +96,7 @@ Options
 </table>
 				
 				
-TO DO LIST (work in progress)
+To do list - (work in progress)
 ==========
 - Utility callbacks like onStart, onPause, etc..
 - Additional public methods like reInit, newGame, pause, update, etc..
