@@ -6,9 +6,9 @@ Pong game powered by JavaScript. :)
 
 Introduction
 =============
-Pong.js is a simple JavaScript library to let you add a custom pong game on your web applications. \s
-Just set up some basic option and let the library do the job.\s
-A ``<canvas>`` tag moved by ``requestAnimationFrame`` will be append on our document and the game will begin.\s
+Pong.js is a simple JavaScript library to let you add a custom pong game on your web applications. <br>
+Just set up some basic option and let the library do the job.<br>
+A ``<canvas>`` tag moved by ``requestAnimationFrame`` will be append on our document and the game will begin.<br>
 To move the paddle we can use the keybord arrows, to start the game just press ENTER nad to pause the game push the space bar.
 
 
