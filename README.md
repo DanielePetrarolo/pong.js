@@ -36,66 +36,73 @@ pongGame.init();
 
 
 
-Options (work in progress)
+Options
 ==========
 <table>
-					<tr>
-						<td><strong>Name</strong></td>
-						<td><strong>Type</strong></td>
-						<td width="200"><strong>Default values</strong></td>
-						<td><strong>Description</strong></td>
-					</tr>
-					<tr>
-						<td><strong>width</strong></td>
-						<td>integer</td>
-						<td>window.innerWidth</td>
-						<td>Set the width of canvas in pixels.</td>
-					</tr>
-					<tr>
-						<td><strong>height</strong></td>
-						<td>integer</td>
-						<td>window.innerHeight</td>
-						<td>Set the height of canvas in pixels.</td>
-					</tr>
-					<tr>
-						<td><strong>level</strong></td>
-						<td>integer</td>
-						<td>1</td>
-						<td>Set the difficult of the game. Values: 1 to 5</td>
-					</tr>
-					<tr>
-						<td><strong>background</strong></td>
-						<td>color</td>
-						<td>'#000000'</td>
-						<td>Set the background color of the canvas.</td>
-					</tr>
-					<tr>
-						<td><strong>field</strong></td>
-						<td>object</td>
-						<td>{<br />'background' : '#000000',<br />'color' : '#FFFFFF'<br />}</td>
-						<td>Object that define custom setting for the field of the pong game.</td>
-					</tr>
-					<tr>
-						<td><strong>paddle</strong></td>
-						<td>object</td>
-						<td>{ <br />'width': 50, <br />'height': 10, <br />'color': '#FFFFFF' <br />}</td>
-						<td>Object that define custom setting for the paddles of the pong game.</td>
-					</tr>
-					<tr>
-						<td><strong>ball</strong></td>
-						<td>object</td>
-						<td>{<br /> 'radius': 5,<br /> 'color': '#FFFFFF' <br />}</td>
-						<td>Object that define custom setting for the ball of the pong game.</td>
-					</tr>
-					<tr>
-						<td><strong>theme</strong></td>
-						<td>string</td>
-						<td>null</td>
-						<td>Set the theme of the pong game. You can choose beetween 'dark', 'light' and 'matrix'. If you choose a theme, it overrides the colors settings seen before.</td>
-					</tr>
-				</table>
+	<tr>
+		<td><strong>Name</strong></td>
+		<td><strong>Type</strong></td>
+		<td width="200"><strong>Default values</strong></td>
+		<td><strong>Description</strong></td>
+	</tr>
+	<tr>
+		<td><strong>width</strong></td>
+		<td>integer</td>
+		<td>window.innerWidth</td>
+		<td>Set the width of canvas in pixels.</td>
+	</tr>
+	<tr>
+		<td><strong>height</strong></td>
+		<td>integer</td>
+		<td>window.innerHeight</td>
+		<td>Set the height of canvas in pixels.</td>
+	</tr>
+	<tr>
+		<td><strong>level</strong></td>
+		<td>integer</td>
+		<td>1</td>
+		<td>Set the difficult of the game. Values: 1 to 5</td>
+	</tr>
+	<tr>
+		<td><strong>background</strong></td>
+		<td>color</td>
+		<td>'#000000'</td>
+		<td>Set the background color of the canvas.</td>
+	</tr>
+	<tr>
+		<td><strong>field</strong></td>
+		<td>object</td>
+		<td>{<br />'background' : '#000000',<br />'color' : '#FFFFFF'<br />}</td>
+		<td>Object that define custom setting for the field of the pong game.</td>
+	</tr>
+	<tr>
+		<td><strong>paddle</strong></td>
+		<td>object</td>
+		<td>{ <br />'width': 50, <br />'height': 10, <br />'color': '#FFFFFF' <br />}</td>
+		<td>Object that define custom setting for the paddles of the pong game.</td>
+	</tr>
+	<tr>
+		<td><strong>ball</strong></td>
+		<td>object</td>
+		<td>{<br /> 'radius': 5,<br /> 'color': '#FFFFFF' <br />}</td>
+		<td>Object that define custom setting for the ball of the pong game.</td>
+	</tr>
+	<tr>
+		<td><strong>theme</strong></td>
+		<td>string</td>
+		<td>null</td>
+		<td>Set the theme of the pong game. You can choose beetween 'dark', 'light' and 'matrix'. If you choose a theme, it overrides the colors settings seen before.</td>
+	</tr>
+</table>
 				
 				
+TO DO LIST (work in progress)
+==========
+- Utility callbacks like onStart, onPause, etc..
+- Additional public methods like reInit, newGame, pause, update, etc..
+- Polish
+
+		
 
 License
 =============
