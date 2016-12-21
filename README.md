@@ -51,12 +51,30 @@ Options (work in progress)
 						<td><strong>background</strong></td>
 						<td>color</td>
 						<td>'#000000'</td>
-						<td>Set the background color of the pong game.</td>
+						<td>Set the background color of the canvas.</td>
+					</tr>
+					<tr>
+						<td><strong>field</strong></td>
+						<td>object</td>
+						<td>{ 'background' : '#000000', 'color' : '#FFFFFF'}</td>
+						<td>Object that define custom setting for the field of the pong game.</td>
+					</tr>
+					<tr>
+						<td><strong>paddle</strong></td>
+						<td>object</td>
+						<td>{ 'width': 50, 'height': 10, 'color': '#FFFFFF' }</td>
+						<td>Object that define custom setting for the paddles of the pong game.</td>
+					</tr>
+					<tr>
+						<td><strong>ball</strong></td>
+						<td>object</td>
+						<td>{ 'radius': 5, 'color': '#FFFFFF' }</td>
+						<td>Object that define custom setting for the ball of the pong game.</td>
 					</tr>
 					<tr>
 						<td><strong>theme</strong></td>
 						<td>string</td>
-						<td>dark</td>
+						<td>null</td>
 						<td>Set the theme of the pong game. You can choose beetween 'dark', 'light' and 'matrix'. If you choose a theme, it overrides the colors settings seen before.</td>
 					</tr>
 				</table>
