@@ -1,7 +1,7 @@
 /*
  * 
  * 	pong.js - http://www.danielepetrarolo.com/lab/pong.js
- * 	Version: 0.7.1
+ * 	Version: 0.7.3
  * 	Author: Daniele Petrarolo - http://www.danielepetrarolo.com
  * 
  * 
@@ -75,7 +75,10 @@ var PongGame = function(options){
 	var _ballData		= _opt.ball 		|| { 'radius': 5, 'color': '#FFFFFF' };
 	var _width			= _opt.width 		|| window.innerWidth;
 	var _height			= _opt.height 		||window.innerHeight;
+	var _onInit			= _opt.onInit 		|| null;
+	var _onPlay			= _opt.onPlay 		|| null;
 	var _onPause		= _opt.onPause 		|| null;
+	
 
 	// Min level = 1 - Max level = 5
 	if (_level < 1) _level = 1;
@@ -154,6 +157,7 @@ var PongGame = function(options){
 		_ball 		= new Ball(_field.x + _field.width * 0.5, _field.height * 0.5);
 		_interface 	= new Interface();
 		
+		if(_onInit) _onInit();
 		_this.startGame();
 	};
 	
@@ -168,6 +172,7 @@ var PongGame = function(options){
 	};
 	_this.playGame = function(){
 		_isPlaying = true;
+		if(_onPlay) _onPlay();
 	};
 	_this.pauseGame = function(){
 		_isPlaying = false;

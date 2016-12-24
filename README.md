@@ -94,6 +94,18 @@ Options
 		<td>Set the theme of the pong game. You can choose beetween 'dark', 'light' and 'matrix'. If you choose a theme, it overrides the colors settings seen before.</td>
 	</tr>
 	<tr>
+		<td><strong>onInit</strong></td>
+		<td>function</td>
+		<td>null</td>
+		<td>Callback function called the first time the game is initialized and ready to play.</td>
+	</tr>
+	<tr>
+		<td><strong>onPause</strong></td>
+		<td>function</td>
+		<td>null</td>
+		<td>Callback function called everytime the game is paused.</td>
+	</tr>
+	<tr>
 		<td><strong>onPause</strong></td>
 		<td>function</td>
 		<td>null</td>
@@ -104,7 +116,7 @@ Options
 				
 To do list - (work in progress)
 ==========
-- Utility callbacks like onStart, onPause, etc..
+- Utility callbacks
 - Additional public methods like reInit, newGame, pause, update, etc..
 - Polish
 
