@@ -100,10 +100,10 @@ Options
 		<td>Callback function called the first time the game is initialized and ready to play.</td>
 	</tr>
 	<tr>
-		<td><strong>onPause</strong></td>
+		<td><strong>onPlay</strong></td>
 		<td>function</td>
 		<td>null</td>
-		<td>Callback function called everytime the game is paused.</td>
+		<td>Callback function called everytime the game is playing.</td>
 	</tr>
 	<tr>
 		<td><strong>onPause</strong></td>
