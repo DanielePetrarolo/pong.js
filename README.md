@@ -93,6 +93,12 @@ Options
 		<td>null</td>
 		<td>Set the theme of the pong game. You can choose beetween 'dark', 'light' and 'matrix'. If you choose a theme, it overrides the colors settings seen before.</td>
 	</tr>
+	<tr>
+		<td><strong>onPause</strong></td>
+		<td>function</td>
+		<td>null</td>
+		<td>Callback function called everytime the game is paused.</td>
+	</tr>
 </table>
 				
 				

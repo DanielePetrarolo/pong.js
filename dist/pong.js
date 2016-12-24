@@ -1,7 +1,7 @@
 /*
  * 
  * 	pong.js - http://www.danielepetrarolo.com/lab/pong.js
- * 	Version: 0.7.0
+ * 	Version: 0.7.1
  * 	Author: Daniele Petrarolo - http://www.danielepetrarolo.com
  * 
  * 
@@ -67,14 +67,15 @@ var PongGame = function(options){
 
 
 	// OPTIONS
-	var _level			= _opt.level || 1;
-	var _theme			= _opt.theme || null;
-	var _background 	= _opt.background || '#000000';
-	var _fieldData		= _opt.field || { 'background' : '#000000', 'color' : '#FFFFFF'};
-	var _paddleData		= _opt.paddle || { 'width': 50, 'height': 10, 'color': '#FFFFFF' };
-	var _ballData		= _opt.ball || { 'radius': 5, 'color': '#FFFFFF' };
-	var _width			= _opt.width || window.innerWidth;
-	var _height			= _opt.height ||window.innerHeight;
+	var _level			= _opt.level 		|| 1;
+	var _theme			= _opt.theme 		|| null;
+	var _background 	= _opt.background 	|| '#000000';
+	var _fieldData		= _opt.field 		|| { 'background' : '#000000', 'color' : '#FFFFFF'};
+	var _paddleData		= _opt.paddle 		|| { 'width': 50, 'height': 10, 'color': '#FFFFFF' };
+	var _ballData		= _opt.ball 		|| { 'radius': 5, 'color': '#FFFFFF' };
+	var _width			= _opt.width 		|| window.innerWidth;
+	var _height			= _opt.height 		||window.innerHeight;
+	var _onPause		= _opt.onPause 		|| null;
 
 	// Min level = 1 - Max level = 5
 	if (_level < 1) _level = 1;
@@ -170,6 +171,7 @@ var PongGame = function(options){
 	};
 	_this.pauseGame = function(){
 		_isPlaying = false;
+		if(_onPause) _onPause();
 	};
 	_this.openMenu = function(){
 		_interface.openMenu();
@@ -208,12 +210,12 @@ var PongGame = function(options){
 		this.computerScore	= String(_computer.score);
 		this.playerScore 	= String(_player.score);
 		
-		_context.fillText(this.computerScore, 10, 30);
-		_context.fillText(this.playerScore, _width - 30, _height - 10);
+		_context.fillText(this.computerScore, 18, 30);
+		_context.fillText(this.playerScore, _width - 20, _height - 15);
 		
 		if(!_isPlaying){
-			_context.textAlign="center"; 
-			_context.fillText("Press ENTER to play", _width * 0.5, _height * 0.5);
+			_context.textAlign = "center"; 
+			_context.fillText("Press ENTER to play", _width * 0.5, _height * 0.5 + 5);
 		}
 	};
 	Interface.prototype.controls = function(){
