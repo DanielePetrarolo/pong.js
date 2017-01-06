@@ -1,13 +1,13 @@
 /*
  * 
  * 	pong.js - http://www.danielepetrarolo.com/lab/pong.js
- * 	Version: 0.7.3
+ * 	Version: 0.8.1
  * 	Author: Daniele Petrarolo - http://www.danielepetrarolo.com
  * 
  * 
  * 	MIT License
  * 	
- * 	Copyright (c) 2016 Daniele Petrarolo
+ * 	Copyright (c) 2017 Daniele Petrarolo
  * 	
  * 	Permission is hereby granted, free of charge, to any person obtaining a copy
  * 	of this software and associated documentation files (the "Software"), to deal
@@ -31,16 +31,19 @@
  */
 
 
+/*/ FONTS /*/
 WebFontConfig = {
-  google:{ families: ['VT323'] },
-  active: function(){start();}
+	google:{ families: ['VT323'] },
+  	active: function(){start();}
 };
 (function(){
-  var wf = document.createElement("script");
-  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js';
-  wf.async = 'true';
-  document.head.appendChild(wf);
+  	var wf = document.createElement("script");
+  	wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js';
+  	wf.async = 'true';
+  	document.head.appendChild(wf);
 })();
+
+
 
 
 var PongGame = function(options){
@@ -74,7 +77,7 @@ var PongGame = function(options){
 	var _paddleData		= _opt.paddle 		|| { 'width': 50, 'height': 10, 'color': '#FFFFFF' };
 	var _ballData		= _opt.ball 		|| { 'radius': 5, 'color': '#FFFFFF' };
 	var _width			= _opt.width 		|| window.innerWidth;
-	var _height			= _opt.height 		||window.innerHeight;
+	var _height			= _opt.height 		|| window.innerHeight;
 	var _onInit			= _opt.onInit 		|| null;
 	var _onPlay			= _opt.onPlay 		|| null;
 	var _onPause		= _opt.onPause 		|| null;
@@ -170,6 +173,18 @@ var PongGame = function(options){
 		
 		window.requestAnimationFrame(_this.startGame);
 	};
+	
+	_this.newGame = function(p_level){
+		
+		if(p_level) _this.setLevel(p_level);
+		
+		_player.reset();
+		_computer.reset();
+		_ball.reset();
+	};
+	_this.setLevel = function(p_level){
+		_level = p_level;
+	};
 	_this.playGame = function(){
 		_isPlaying = true;
 		if(_onPlay) _onPlay();
@@ -178,9 +193,7 @@ var PongGame = function(options){
 		_isPlaying = false;
 		if(_onPause) _onPause();
 	};
-	_this.openMenu = function(){
-		_interface.openMenu();
-	};
+
 	
 	
 	
@@ -210,18 +223,45 @@ var PongGame = function(options){
 	// INTERFACCIA UTENTE
 	Interface = function(){
 		_context.font = '30px VT323';
+		this.isMenuOpen = false;
 	};
 	Interface.prototype.render = function(){
 		this.computerScore	= String(_computer.score);
 		this.playerScore 	= String(_player.score);
 		
+		_context.font = '30px VT323';
+		_context.textAlign = "center"; 
 		_context.fillText(this.computerScore, 18, 30);
 		_context.fillText(this.playerScore, _width - 20, _height - 15);
 		
+		_context.font = '20px VT323';
+		_context.textAlign = "start"; 
+		_context.fillText("Press (M) to open menu", 18, _height - 20);
+		
 		if(!_isPlaying){
+			_context.font = '30px VT323';
 			_context.textAlign = "center"; 
-			_context.fillText("Press ENTER to play", _width * 0.5, _height * 0.5 + 5);
+			_context.fillText("Press (ENTER) to play", _width * 0.5, _height * 0.5 + 5);
 		}
+		
+		if(this.isMenuOpen){
+			_context.fillStyle = _fieldData.background;
+			_context.fillRect(_width * .5 - 150, _height * .5 - 125, 300, 240);
+			
+			_context.font = '20px VT323';
+			_context.textAlign = "center"; 
+			_context.fillStyle = _fieldData.color;
+			_context.fillText("(N) - NEW GAME", _width * .5, _height * .5 - 90);
+			_context.fillText("(1) - LEVEL 1", _width * .5, _height * .5 - 60);
+			_context.fillText("(2) - LEVEL 2", _width * .5, _height * .5 - 30);
+			_context.fillText("(3) - LEVEL 3", _width * .5, _height * .5);
+			_context.fillText("(4) - LEVEL 4", _width * .5, _height * .5 + 30);
+			_context.fillText("(5) - LEVEL 5", _width * .5, _height * .5 + 60);
+			_context.fillText("(X) - CLOSE MENU", _width * .5, _height * .5 + 90);
+		}
+		
+		
+		
 	};
 	Interface.prototype.controls = function(){
 		for (var key in _keysDown){
@@ -236,7 +276,41 @@ var PongGame = function(options){
 			if(value == 32 && _isPlaying){
 				_this.pauseGame();
 			}
+
+			// M == open menu
+			if(value == 77 && !this.isMenuOpen){
+				_this.pauseGame();
+				this.openMenu();
+			}
+
+			
+			// MENU
+			if(this.isMenuOpen){
+				
+				// N == new game
+				if(value == 78){ _this.newGame(); this.closeMenu(); }
+				// 1 == new game at level 1
+				if(value == 49){ _this.newGame(1); this.closeMenu(); }
+				// 2 == new game at level 2
+				if(value == 50){ _this.newGame(2); this.closeMenu(); }
+				// 3 == new game at level 3
+				if(value == 51){ _this.newGame(3); this.closeMenu(); }
+				// 4 == new game at level 4
+				if(value == 52){ _this.newGame(4); this.closeMenu(); }
+				// 5 == new game at level 5
+				if(value == 53){ _this.newGame(5); this.closeMenu(); }
+				// X == close menu
+				if(value == 88){ this.closeMenu(); }
+			}
+			
+			
 		}
+	};
+	Interface.prototype.openMenu = function(){
+		this.isMenuOpen = true;
+	};
+	Interface.prototype.closeMenu = function(){
+		this.isMenuOpen = false;
 	};
 	
 	
@@ -322,6 +396,11 @@ var PongGame = function(options){
 	Player.prototype.render = function(){
 		this.paddle.render();
 	};
+	Player.prototype.reset = function(){
+		this.score 	= 0;
+		this.speed	= _level * _width / 400;
+		this.paddle.restart();
+	};
 	Player.prototype.update = function(){
 		for (var key in _keysDown){
 			var value = Number(key);
@@ -353,6 +432,11 @@ var PongGame = function(options){
 	};
 	Computer.prototype.render = function(){
 		this.paddle.render();
+	};
+	Computer.prototype.reset = function(){
+		this.score 	= 0;
+		this.speed	= _level * _width / 400;
+		this.paddle.restart();
 	};
 	Computer.prototype.update = function(){
 		var xPos 		= _ball.x;
@@ -389,10 +473,13 @@ var PongGame = function(options){
 		_context.fill();
 	};
 	Ball.prototype.reset = function(){
-		this.x 			= _field.x + _field.width * 0.5;
-		this.y	 		= _field.y + _field.height * 0.25;
-		this.x_speed	= this.x_speed_start;
-		this.y_speed 	= this.y_speed_start;
+		this.x 				= _field.x + _field.width * 0.5;
+		this.y	 			= _field.y + _field.height * 0.25;
+		
+		this.x_speed_start	= 0;
+		this.x_speed		= this.x_speed_start;
+		this.y_speed_start	= _level * _height / 200;
+		this.y_speed 		= this.y_speed_start;
 	};
 	Ball.prototype.update = function(playerPaddle, computerPaddle){
 		this.x += this.x_speed;

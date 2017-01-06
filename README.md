@@ -11,7 +11,8 @@ Just set up some basic option and let the library do the job.
 
 A ``<canvas>`` tag moved by ``requestAnimationFrame`` will be append on our document and the game will begin.
 
-To move the paddle we can use the keybord arrows, to start the game just press ENTER nad to pause the game push the space bar.
+To move the paddle we can use the keybord arrows, to start the game just press ENTER and to pause the game push the space bar.
+We can start a new game or change the level game using the menu.
 
 
 
@@ -126,7 +127,7 @@ License
 =============
 MIT License
 
-Copyright (c) 2016 Daniele Petrarolo
+Copyright (c) 2017 Daniele Petrarolo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
